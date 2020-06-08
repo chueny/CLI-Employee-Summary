@@ -2,18 +2,18 @@
 
 const Employee = require("./Employee");
 
-function Intern(name, id, email, school){
-
-    Employee.call(this, name, id, email);
-    this.school = school;
-    this.role = "Intern";
-
-    Intern.prototype.getRole = function (text){
+class Intern extends Employee{
+    constructor(name, id, email, school) {
+    
+        super(name, id, email); 
+        this.school = school;
+        this.role = "Intern";
+    }
+    getRole(){
         return this.role;
     }
-
-    Intern.prototype.getSchool = function (text){
-        return this.school; 
+    getSchool(){
+        return this.school;
     }
 
 }
