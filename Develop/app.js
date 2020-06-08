@@ -78,12 +78,12 @@ function manager (generalInfo){
         ]).then(function(managerRes){
                 employees.push(new Manager(generalInfo.name, generalInfo.id, generalInfo.email, managerRes.officeNumber));
                 
-                console.log("Employee list is: "+ employees);
+                // console.log("Employee list is: "+ employees);
                 const htmlString = render(employees);
 
                 fs.writeFile(outputPath, htmlString, function(err){
                     if (err) throw err;
-                    console.log('saved');
+                    // console.log('saved');
 
                 });
 
@@ -101,12 +101,12 @@ function engineer(generalInfo){
                 }
             ]).then(function(engRes){
                 employees.push(new Engineer(generalInfo.name, generalInfo.id, generalInfo.email, engRes.github));
-                console.log("Employee lis is: "+ employees[0]);
+                // console.log("Employee lis is: "+ employees[0]);
                 const htmlString = render(employees);
 
                 fs.writeFile(outputPath, htmlString, function(err){
                     if (err) throw err;
-                    console.log('saved');
+                    // console.log('saved');
 
                 });
                 addMoreEmployee();
@@ -121,13 +121,15 @@ function intern(generalInfo){
                     name: "school"
                 }
             ]).then(function(internRes){
+
+
                 employees.push(new Intern (generalInfo.name, generalInfo.id, generalInfo.email, internRes.school));
-                    console.log("Employee list is: "+ employees[0]);
+                    // console.log("Employee list is: "+ employees[0]);
                     const htmlString = render(employees);
     
                     fs.writeFile(outputPath, htmlString, function(err){
                         if (err) throw err;
-                        console.log('saved');
+                        // console.log('saved');
     
                     });
                 addMoreEmployee();
